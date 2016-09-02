@@ -44,7 +44,7 @@ end
 
 インストール後、Guardfile を作成する。
 ```console
-guard init rubocop
+$ guard init rubocop
 ```
 
 Guardfile を開くと、下記のようなコードが生成されている。
@@ -65,7 +65,7 @@ end
 
 Guard を実行する。制御は返ってこないので、別タブを開いて実行すると良い。
 ```console
-bundle exec guard
+$ bundle exec guard
 ```
 
 早速 Guardfile の正規表現のコーディングスタイルについて指摘を受けるので、 `rubocop --auto-correct` で修正すると良い。最終的な Guardfile はこのようになる。
@@ -74,4 +74,19 @@ guard :rubocop, notification: true do
   watch(/.+\.rb$/)
   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
 end
+```
+
+### Atom ユーザー向け
+
+[Atom](https://atom.io) を使用していて、ファイルを保存せずともコード入力時にリアルタイムでコーディングチェックを行いたい場合は [linter-rubocop](https://github.com/AtomLinter/linter-rubocop) を導入する。
+
+```console
+$ apm install linter
+$ apm install linter-rubocop
+```
+
+config.cson (Atom -> Config...) に下記を追記する。rubocop のパスは `witch rubocop` 、rbenv を使用している場合は `rbenv witch rubocop` で確認する。
+```
+"linter-rubocop":
+  command: "rubocop のパス"
 ```
