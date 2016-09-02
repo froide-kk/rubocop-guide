@@ -15,7 +15,7 @@
 ### Gemfile への追加
 
 development グループに追加する。
-```
+```ruby
 group :development do
   gem 'rubocop'
 end
@@ -34,7 +34,7 @@ end
 ### 自動実行
 
 一通りコードを書く度にターミナルを叩くのは面倒なので、Guard を使ってファイルを保存する度に Rubocop を自動実行して結果を通知する。Gemfile に [guard-rubocop](https://github.com/yujinakayama/guard-rubocop) と [terminal-notifier-guard](https://github.com/Codaisseur/terminal-notifier-guard) を追加する。
-```
+```ruby
 group :development do
   gem 'rubocop'
   gem 'guard-rubocop'
