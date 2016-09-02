@@ -1,0 +1,32 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+
+Rails:
+  Enabled: true
+
+# Use only ascii symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# Do not use block comments.
+Style/BlockComments:
+  Enabled: false
+
+# Avoid using {...} for multi-line blocks.
+Style/BlockDelimiters:
+  Exclude:
+    - spec/**/*
+
+# Use nested module/class definitions instead of compact style.
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Missing top-level class documentation comment.
+Style/Documentation:
+  Enabled: false
+
+# Line is too long.
+Metrics/LineLength:
+  Max: 128
