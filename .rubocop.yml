@@ -1,4 +1,5 @@
 AllCops:
+  TargetRubyVersion:
   Exclude:
     - bin/**/*
     - db/schema.rb
@@ -6,27 +7,39 @@ AllCops:
 Rails:
   Enabled: true
 
+# Use &&, instead of and.
+Style/AndOr:
+  Exclude:
+    - app/controllers/**/*_controller.rb
+
+# Missing magic comment `# frozen_string_literal: true`.
+# The frozen string literal comment is only valid in Ruby 2.3+.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 # Use only ascii symbols in comments.
 Style/AsciiComments:
   Enabled: false
 
-# Do not use block comments.
-Style/BlockComments:
-  Enabled: false
-
-# Avoid using {...} for multi-line blocks.
-Style/BlockDelimiters:
-  Exclude:
-    - spec/**/*
-
 # Use nested module/class definitions instead of compact style.
 Style/ClassAndModuleChildren:
-  Enabled: false
+  Exclude:
+    - app/**/*.rb
 
 # Missing top-level class documentation comment.
 Style/Documentation:
   Enabled: false
 
+# Assignment Branch Condition size for :method is too high.
+Metrics/AbcSize:
+  Max: 20
+
 # Line is too long.
 Metrics/LineLength:
-  Max: 128
+  Max: 100
+
+# Block has too many lines.
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'
+    - '**/factories/*.rb'

@@ -25,6 +25,8 @@ end
 
 標準では、1行あたりの文字数が80文字程度であったり、Ascii 以外のコメント(日本語等)が打てなかったり等、不便な点も多いので .rubocop.yml でカスタマイズする。プロジェクトのルートディクレクトリに、[.rubocop.yml](/.rubocop.yml) を追加する。
 
+`.rubocop.yml`に`TargetRubyVersion`を指定する。
+
 ## 運用
 
 ### 手動実行
