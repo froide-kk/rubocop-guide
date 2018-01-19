@@ -7,6 +7,13 @@ AllCops:
 Rails:
   Enabled: true
 
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - staging
+    - development
+    - test
+
 # Use &&, instead of and.
 Style/AndOr:
   Exclude:
